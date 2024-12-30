@@ -1,0 +1,4 @@
+asgiref
+pytz
+sqlparse
+psycopg2-binary
