@@ -7,7 +7,7 @@ class Comment(models.Model):
     email= models.EmailField()
     # image= models.ImageField(default= 'default.png', blank= True)
     message= models.TextField()
-    created= models.DateTimeField(auto_now_add=True)
+    created= models.DateTimeField(auto_now_add=True, null=True)
 
     class Meta:
         ordering= ['-created']
