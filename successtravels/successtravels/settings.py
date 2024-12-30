@@ -33,7 +33,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG= config('DEBUG', cast= bool)
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'https://successtravels-fullstack-3.onrender.com']
 
 
 # Application definition
