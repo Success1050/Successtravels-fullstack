@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import dj_database_url
+from decouple import config
 
 load_dotenv()
 
@@ -24,10 +26,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-a8kk648rupt97ww_b=hfej8$g&_6ajc=3w%g58%&yt17b$itg9'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+DEBUG= config('DEBUG', cast= bool)
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -44,6 +48,7 @@ INSTALLED_APPS = [
     'successapp',
     'corsheaders',
     'rest_framework',
+    # 'python_decouple',
 ]
 
 MIDDLEWARE = [
@@ -92,6 +97,8 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT'),
     }
 }
+
+DATABASES['default']= dj_database_url.parse(config('DB_URL'))
 
 
 # Password validation
