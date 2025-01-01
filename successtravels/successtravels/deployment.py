@@ -1,14 +1,16 @@
 import os
+import dj_database_url
 from .settings import *
 from .settings import BASE_DIR
 
-ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']]
-CSRF_TRUSTED_ORIGINS = ['https://'+os.environ['WEBSITE_HOSTNAME']]
+ALLOWED_HOSTS = [os.environ.get('RENDER_EXTERNAL_HOSTNAME')]
+CSRF_TRUSTED_ORIGINS = ['https://'+os.environ.get('RENDER_EXTERNAL_HOSTNAME')]
+
 DEBUG = False
-SECRET_KEY = os.environ['MY_SECRET_KEY']
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -20,30 +22,24 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://victorious-river-09d149f03.4.azurestaticapps.net'
+    'https://render-deploy-tutorial-reactjs-code.onrender.com'
 ]
 
 STORAGES = {
-    "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    "default":{
+        "BACKEND" : "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+        "BACKEND" : "whitenoise.storage.CompressedStaticFilesStorage",
     },
+
 }
 
-
-CONNECTION = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
-CONNECTION_STR = {pair.split('=')[0]:pair.split('=')[1] for pair in CONNECTION.split(' ')}
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": CONNECTION_STR['dbname'],
-        "HOST": CONNECTION_STR['host'],
-        "USER": CONNECTION_STR['user'],
-        "PASSWORD": CONNECTION_STR['password'],
-    }
+    'default': dj_database_url.config(
+        default= os.environ['DATABASE_URL'],
+        conn_max_age=600
+    )
 }
 
 # LOGGING = {
@@ -65,7 +61,8 @@ DATABASES = {
 # }
 
 
-# ADMINS = [("Nick", "YOURMAIL.com")]
+# ADMINS = [("CBI Analytics", "YOUREMAIL@EMAIL.com")]
+
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'smtp.gmail.com'
@@ -74,6 +71,3 @@ DATABASES = {
 # EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 # EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 # DEFAULT_FROM_EMAIL = 'default from email'
-
-
-STATIC_ROOT = BASE_DIR/'staticfiles'

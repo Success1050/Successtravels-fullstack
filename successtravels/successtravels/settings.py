@@ -87,10 +87,12 @@ WSGI_APPLICATION = 'successtravels.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "mydatabase",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -137,6 +139,7 @@ STATIC_URL = 'static/'
 MEDIA_URL = 'images/'
 MEDIA_ROOT = BASE_DIR / 'images'
 
+STATIC_ROOT= BASE_DIR/ 'staticfiles'
 
 # MEDIA_ROOT= (os.path.join(BASE_DIR, 'images'))
 
