@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 // import { Audio } from 'react-loader-spinner'
 import { useRouter } from 'next/navigation'
-
+const url = 'https://backend-2-vtet.onrender.com'
 
 const addcoment = () => {
   const router = useRouter()
@@ -14,19 +14,6 @@ const addcoment = () => {
   const [email, setEmail]= useState('')
   const [comment, setComment]= useState('')
   const [isLoading, setIsloading]= useState('')
-
-  
-// const handleUploadImage=(e)=>{
-//   const max = 2 * 1024 *1024
-//   const file = e.target.files[0]
-
-//   if (file && file.size > max) {
-//     toast('file is larger than 2mb')
-//     e.target.value= null
-//   }else{ 
-//      setUploadedImages(e.target.files[0])
-//   }
-// }
 
  const formData = new FormData();
     formData.append('name', name);
@@ -40,7 +27,7 @@ const addcoment = () => {
     setIsloading(true)
     try {
           
-      await axios.post('http://127.0.0.1:8000/comments/', formData, {
+      await axios.post(`${url}/comments/`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data', // Ensure correct content type for file uploads
         }},).then((res)=>{
