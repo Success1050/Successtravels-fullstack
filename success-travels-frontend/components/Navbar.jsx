@@ -57,7 +57,7 @@ const Navbar = () => {
               </Link>
             );
           })}
-          <div className='absolute top-custop5 right-cusPt text-[16px]' y>
+          <div className='absolute top-custop5 right-cusPt text-[16px]'>
             <button type='button' onClick={() => setIsOpen(false)}>
               <FaTimes />
             </button>
