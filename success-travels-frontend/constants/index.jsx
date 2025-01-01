@@ -2,8 +2,10 @@ import {
   FaPlane,
   FaUmbrellaBeach,
   FaHotel,
-  FaCreditCard,
+  FaCreditCard,FaFacebook, FaInstagram, FaTwitter, FaLinkedinIn, FaTiktok, FaGithub
 } from "react-icons/fa";
+
+
 
 export const navLinks = [
   {
@@ -151,42 +153,41 @@ export const testimonials = [
   },
 ];
 
-export const airlines = [
-  "American Airlines",
-  "Airfrance",
-  "Asky",
-  "British Airline",
-  "Ethiopian Airline",
-  "Royal air Maroc",
-  "Turkish Airline",
-  "United Airlines",
-  "Delta Airline",
-  "KLM",
-  "Emirates",
-  "Kenya Airways",
-  "China Southern",
-  "Egypt Air",
-  "Hahn Air",
-  "IRS airline",
-  "Lufthansa",
-  "Camair",
-  "Qatar airlines",
-  "Rwandair",
-  "Virgin atlantic",
-  "South African Airways",
-  "Etihad",
-  "Others",
-];
-
-export const tourPurpose = [
-  "An Adventure",
-  "An Anniversary",
-  "A culture and history trip",
-  "A custom and private trip",
-  "Events",
-  "An excursion",
-  "Festive trip",
-  "Honeymoon",
-  "A vacation",
-  "Others (please specify in the comments below)",
-];
+export const socials= [
+  {
+    id: 1,
+    name: '@Emmysuccess freedom',
+    icon: <FaFacebook size={24} className='text-blue-500 hover:text-blue-600 motion cursor-pointer'/>,
+    link: 'https://www.facebook.com/emmanuel.ekunife?mibextid=ZbWKwL'
+  },
+  {
+    id: 2,
+    name: '@successemmanuel46',
+    icon: <FaTiktok size={24} className='text-[#121212] hover:text-[#222] motion cursor-pointer'/>,
+    link: 'https://www.tiktok.com/@successemmanuel46?_t=8siIO0gTN3t&_r=1'
+  },
+  {
+    id: 3,
+    name: '@emmanuel ekwunife',
+    icon: <FaLinkedinIn size={24} className='text-blue-500 hover:text-blue-600 motion cursor-pointer'/>,
+    link: 'https://www.linkedin.com/in/emmanuel-success'
+  },
+  {
+    id: 4,
+    name: '@success200431',
+    icon: <FaTwitter size={24} className='text-blue-400 hover:text-blue-500 motion cursor-pointer'/>,
+    link: 'https://x.com/success200431?t=RLvKjEP6Vq9TSRp4QlLjkw&s=09'
+  },
+  {
+    id: 5,
+    name: '@success_prop',
+    icon: <FaInstagram size={24} className='text-pink-500 hover:text-pink-600 motion cursor-pointer'/>,
+    link: 'https://www.instagram.com/success_prop?igsh=MW9oaWl0c2szY2hiYw=='
+  },
+  {
+    id: 5,
+    name: '@success1050',
+    icon: <FaGithub size={24} className='text-[#121212] hover:text-[#222] motion cursor-pointer'/>,
+    link: 'https://github.com/Success1050'
+  },
+]

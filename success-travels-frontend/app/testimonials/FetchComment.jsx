@@ -12,7 +12,7 @@ const FetchComment = () => {
      useEffect(() => {
     const fetchData = async () => {
       try {
-        await axios.get(`${url}/comments/recent`).then((res)=> setComments(res.data))
+        await axios.get(`${url}/comments/recent/`).then((res)=> setComments(res.data))
          // Set the fetched data to the state
       } catch (error) {
         console.error('Error fetching data:', error);

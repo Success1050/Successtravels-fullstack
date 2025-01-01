@@ -1,6 +1,7 @@
 import HeaderComponent from "@/components/HeaderComponent";
-import { FaEnvelope, FaMapMarkedAlt, FaPhone, FaWhatsapp } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkedAlt, FaPhone, FaWhatsapp} from "react-icons/fa";
 import Link from "next/link";
+import { socials } from "@/constants";
 
 const ContactPage = () => {
   return (
@@ -53,50 +54,18 @@ const ContactPage = () => {
                 </Link>
             </div>
 
-            {/* form */}
+            {/* SOCIAL MEDIAS */}
             <div className='bg-white rounded-lg shadow-md p-6'>
-              <h3 className='text-xl font-bold mb-4'>Get in touch</h3>
-              <form action='#'>
-                <div className='mb-4'>
-                  <label className='block text-gray-700 mb-2' htmlFor='Name'>
-                    Name
-                  </label>
-                  <input
-                    type='text'
-                    className='w-full p-2 border border-gray-300 rounded'
-                    name='Name'
-                    placeholder='Enter name'
-                  />
-                </div>
-                <div>
-                  <label htmlFor='Email' className='block text-gray-700 mb-2'>
-                    Email
-                  </label>
-                  <input
-                    type='email'
-                    name='Email'
-                    className='w-full p-2 border border-gray-300 rounded'
-                    placeholder='Enter Email'
-                  />
-                </div>
-                <div>
-                  <label htmlFor='Name' className='block text-gray-700 mb-2'>
-                    Message
-                  </label>
-                  <textarea
-                    name=''
-                    id=''
-                    placeholder='Write Message'
-                    className='w-full p-2 border border-gray-300 rounded'
-                  ></textarea>
-                </div>
-                <button
-                  type='submit'
-                  className='py-2 px-4 bg-blue-500 text-white rounded'
-                >
-                  Send Message
-                </button>
-              </form>
+              <h3 className='text-xl font-bold mb-4 capitalize'>Follow us on our social media handles by clicking on the link to redirect you to our social media pages</h3>
+              <div className="flex flex-col justify-center col-[2rem] gap-y-3">
+                {socials.map((social)=>{
+                  const {id, name, icon, link}= social
+                  return <Link href= {link} className="flex gap-[.7rem]" key={id} target="_blank">
+                      <span>{icon}</span>
+                   <h2>{name} </h2>
+                </Link>
+                })}
+              </div>
             </div>
           </div>
         </div>
