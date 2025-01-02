@@ -36,7 +36,10 @@ const addcoment = () => {
         if (res.status === 201 || res.status === 200) {
           toast.success('Comment was added successfully')
           // router.push('/about')
-          router.push('/testimonials')
+          setTimeout(() => {
+            router.push('/testimonials')
+          }, 3000);
+          
         }else{
           toast.error('an error occured')
         }

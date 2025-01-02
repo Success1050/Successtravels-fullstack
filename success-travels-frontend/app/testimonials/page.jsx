@@ -7,9 +7,10 @@ import Link from 'next/link';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import FetchComment from './FetchComment';
+import Spinner from '@/spinner/page';
 
 const TestimonialsPage = () => {
-  const {comments}= FetchComment()
+  const {comments, isloading}= FetchComment()
   
   // console.log(comments);
   
@@ -23,8 +24,8 @@ const TestimonialsPage = () => {
 
         <main className='m-10'>
           <Link href= '/testimonials/addcomment'><div className='flex justify-self-end items-center border-[2px] border-solid text-center p-[.8rem] my-[.9rem] bg-blue-500 w-fit  rounded-[6px] text-white  border-blue-500 transform transition-all duration-300 active:scale-[0.9]'>Add comment</div></Link>
-          
-          <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+
+          {isloading? <Spinner/>: <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
             {comments.map((testimonial) => {
               // console.log(testimonial);
               
@@ -68,7 +69,9 @@ const TestimonialsPage = () => {
                 </div>
               );
             })}
-          </div>
+          </div>}
+          
+          
         </main>
   </section>
   
